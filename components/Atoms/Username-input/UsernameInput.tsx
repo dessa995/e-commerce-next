@@ -3,7 +3,12 @@ import React from "react";
 const UsernameInput = () => {
   return (
     <div>
-      <h1>UsernameInput</h1>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="Your username"
+      />
     </div>
   );
 };
