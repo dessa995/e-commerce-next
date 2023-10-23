@@ -6,21 +6,35 @@ import ChooseGenderRadio from "@/components/Atoms/Choose-Gender/ChooseGenderRadi
 
 const RegisterForm = () => {
   return (
-    <div>
-      <h2>Registration</h2>
+    <div className="flex flex-col items-center">
+      <h2 className="font-bold text-2xl mb-5 text-orange-900">Registration</h2>
       <form className="flex flex-col gap-2">
         <ChoosePrivateRadio />
         <NameRowRegister />
         <UsernameEmailRowRegister />
         <ChooseGenderRadio />
-        <p>
+        <p className="text-orange-900">
           By submiting your registration you agree on our{" "}
-          <a href="#">Privacy Policy</a>
+          <a
+            href="#"
+            className="text-orange-600 hover:text-orange-800 transition-all"
+          >
+            Privacy Policy
+          </a>
         </p>
-        <button className="" type="submit">
+        <button
+          className="w-6/12 self-center p-2 font-bold text-lg text-orange-950 hover:text-orange-300 rounded-lg bg-orange-300 hover:bg-orange-800 transition-all duration-300"
+          type="submit"
+        >
           Submit
         </button>
       </form>
+      <p className="text-orange-900 text-sm">
+        Have an Account?{" "}
+        <button className="text-orange-600 text-sm hover:text-orange-800 transition-all mt-4">
+          Login Here
+        </button>{" "}
+      </p>
     </div>
   );
 };

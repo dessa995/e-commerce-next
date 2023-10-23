@@ -4,7 +4,7 @@ import React from "react";
 
 const UsernameEmailRowRegister = () => {
   return (
-    <div className="flex gap-1">
+    <div className="flex flex-col gap-2">
       <UsernameInput />
       <EmailInput />
     </div>
