@@ -1,17 +1,27 @@
 import React from "react";
 import NameRowRegister from "../../Molecules/Register-Name-row/RegisterNameRow";
-import UsernameEmailRowRegister from "@/components/Molecules/UsernameEmaliRowRegister/UsernameEmailRowRegister";
+import UsernamePasswordRowRegister from "@/components/Molecules/UsernameEmaliRowRegister/UsernamePasswordRowRegister";
 import ChoosePrivateRadio from "@/components/Atoms/Choose-private-radio/ChoosePrivateRadio";
 import ChooseGenderRadio from "@/components/Atoms/Choose-Gender/ChooseGenderRadio";
+import EmailInput from "@/components/Atoms/Email-input/EmailInput";
+// import ConfirmPasswordInut from "@/components/Atoms/Password-input/ConfirmPasswordInut";
 
-const RegisterForm = () => {
+type RegisterFormProps = {
+  setHasAccount: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const RegisterForm = ({ setHasAccount }: RegisterFormProps) => {
   return (
     <div className="flex flex-col items-center">
       <h2 className="font-bold text-2xl mb-5 text-orange-900">Registration</h2>
-      <form className="flex flex-col gap-2">
+      <form className="flex flex-col gap-2 w-11/12">
         <ChoosePrivateRadio />
         <NameRowRegister />
-        <UsernameEmailRowRegister />
+        <EmailInput />
+        <div className="flex flex-col items-cente my-10">
+          <UsernamePasswordRowRegister />
+          {/* <ConfirmPasswordInut /> */}
+        </div>
         <ChooseGenderRadio />
         <p className="text-orange-900">
           By submiting your registration you agree on our{" "}
@@ -30,8 +40,11 @@ const RegisterForm = () => {
         </button>
       </form>
       <p className="text-orange-900 text-sm">
-        Have an Account?{" "}
-        <button className="text-orange-600 text-sm hover:text-orange-800 transition-all mt-4">
+        Already have an Account?{" "}
+        <button
+          className="text-orange-600 text-sm hover:text-orange-800 transition-all mt-4"
+          onClick={() => setHasAccount(true)}
+        >
           Login Here
         </button>{" "}
       </p>

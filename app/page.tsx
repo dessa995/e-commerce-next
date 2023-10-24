@@ -1,4 +1,4 @@
-import Header from "./Header/Header";
+import Header from "../components/Organisms/Header/Header";
 import Details from "./details/Page";
 // import useTranslation from "next-translate/useTranslation";
 // import styles from "./details/page.module.css";

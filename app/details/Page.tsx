@@ -1,14 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 // import styles from "./page.module.css";
-import RegisterForm from "../../components/Organisms/Register-form/RegisterForm";
 
 import { useForm } from "react-hook-form";
 import RegisterPage from "@/components/Layouts/Register-Page/RegisterPage";
+import LoginPage from "@/components/Layouts/Login-page/LoginPage";
 
 const Details = () => {
+  const [hasAccount, setHasAccount] = useState(true);
   // const { t } = useTranslation("common");
   const form = useForm({
     defaultValues: {},
@@ -16,7 +17,11 @@ const Details = () => {
   return (
     <>
       {/* <div className={styles.testClass}>{t("header-title")}</div> */}
-      <RegisterPage />
+      {hasAccount ? (
+        <LoginPage setHasAccount={setHasAccount} />
+      ) : (
+        <RegisterPage setHasAccount={setHasAccount} />
+      )}
     </>
   );
 };

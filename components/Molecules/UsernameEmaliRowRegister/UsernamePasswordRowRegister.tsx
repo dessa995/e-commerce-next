@@ -1,14 +1,15 @@
 import EmailInput from "@/components/Atoms/Email-input/EmailInput";
+import PasswordInput from "@/components/Atoms/Password-input/PasswordInput";
 import UsernameInput from "@/components/Atoms/Username-input/UsernameInput";
 import React from "react";
 
-const UsernameEmailRowRegister = () => {
+const UsernamePasswordRowRegister = () => {
   return (
     <div className="flex flex-col gap-2">
       <UsernameInput />
-      <EmailInput />
+      <PasswordInput />
     </div>
   );
 };
 
-export default UsernameEmailRowRegister;
+export default UsernamePasswordRowRegister;
