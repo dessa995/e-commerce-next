@@ -4,7 +4,7 @@ const ChooseGenderRadio = () => {
   return (
     <div className="flex gap-2">
       <label htmlFor="male" className="text-orange-900">
-        Male/Nonbinario
+        Male
       </label>
       <input
         className="accent-orange-600 hover:cursor-pointer"
@@ -13,7 +13,7 @@ const ChooseGenderRadio = () => {
         id="male"
       />
       <label htmlFor="female" className="text-orange-900">
-        Female/Nonbinaria
+        Female
       </label>
       <input
         className="accent-orange-600 hover:cursor-pointer"

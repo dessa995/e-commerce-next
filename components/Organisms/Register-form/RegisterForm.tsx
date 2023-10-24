@@ -1,25 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+
 import NameRowRegister from "../../Molecules/Register-Name-row/RegisterNameRow";
-import UsernamePasswordRowRegister from "@/components/Molecules/UsernameEmaliRowRegister/UsernamePasswordRowRegister";
+import UsernamePasswordRowRegister from "@/components/Molecules/UsernamePasswordRowRegister/UsernamePasswordRowRegister";
 import ChoosePrivateRadio from "@/components/Atoms/Choose-private-radio/ChoosePrivateRadio";
 import ChooseGenderRadio from "@/components/Atoms/Choose-Gender/ChooseGenderRadio";
 import EmailInput from "@/components/Atoms/Email-input/EmailInput";
 // import ConfirmPasswordInut from "@/components/Atoms/Password-input/ConfirmPasswordInut";
 
 type RegisterFormProps = {
+  hasAccount: boolean;
   setHasAccount: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const RegisterForm = ({ setHasAccount }: RegisterFormProps) => {
+const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const [show, setShow] = useState(false);
+  const formData = watch();
+  const formSubmit = (data: any) => {
+    console.log(data);
+    setShow(true);
+  };
+
   return (
     <div className="flex flex-col items-center">
       <h2 className="font-bold text-2xl mb-5 text-orange-900">Registration</h2>
-      <form className="flex flex-col gap-2 w-11/12">
+      <form
+        className="flex flex-col gap-2 w-11/12"
+        onSubmit={handleSubmit(formSubmit)}
+      >
         <ChoosePrivateRadio />
-        <NameRowRegister />
-        <EmailInput />
+        <NameRowRegister register={register} errors={errors} />
+        <EmailInput register={register} errors={errors} />
         <div className="flex flex-col items-cente my-10">
-          <UsernamePasswordRowRegister />
+          <UsernamePasswordRowRegister
+            register={register}
+            errors={errors}
+            hasAccount={hasAccount}
+          />
           {/* <ConfirmPasswordInut /> */}
         </div>
         <ChooseGenderRadio />

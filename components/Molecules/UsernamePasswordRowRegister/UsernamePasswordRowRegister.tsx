@@ -3,11 +3,24 @@ import PasswordInput from "@/components/Atoms/Password-input/PasswordInput";
 import UsernameInput from "@/components/Atoms/Username-input/UsernameInput";
 import React from "react";
 
-const UsernamePasswordRowRegister = () => {
+type LoginFormProps = {
+  hasAccount: boolean;
+};
+
+const UsernamePasswordRowRegister = (
+  { register, errors }: any,
+  { hasAccount }: LoginFormProps
+) => {
+  console.log(hasAccount);
+
   return (
     <div className="flex flex-col gap-2">
-      <UsernameInput />
-      <PasswordInput />
+      <UsernameInput register={register} errors={errors} />
+      <PasswordInput
+        register={register}
+        errors={errors}
+        hasAccount={hasAccount}
+      />
     </div>
   );
 };
