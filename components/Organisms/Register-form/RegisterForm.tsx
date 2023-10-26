@@ -1,3 +1,4 @@
+import { log } from "console";
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 
@@ -11,15 +12,27 @@ const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
     control,
     register,
     watch,
+    reset,
+    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [show, setShow] = useState(false);
+  const passwordMatch = (value: string) => {
+    const password = getValues("password"); // Get the value of the "Password" field
+    return password === value || "Passwords should match!";
+  };
+
   const formData = watch();
+
   const formSubmit = (data: any) => {
+    const { password, cpassword } = getValues();
+
+    console.log(
+      `passwords match ${password} ${cpassword} ${password === cpassword}`
+    );
     console.log(data);
-    setShow(true);
+    reset();
   };
 
   return (
@@ -128,19 +141,23 @@ const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
           />
           <input
             className={
-              errors?.confirmPassword
+              errors?.cpassword
                 ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
                 : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
             }
             type="password"
             id="confirmPassword"
-            {...register("confirmPassword", { required: true })}
+            {...register("cpassword", {
+              required: true,
+              validate: passwordMatch,
+            })}
             placeholder={
-              errors?.confirmPassword
-                ? "Passwords did not match"
+              errors?.cpassword
+                ? "Confirm Password is required"
                 : "Confirm Your Password"
             }
           />
+          {errors?.cpassword && <p className="text-red-600">{}</p>}
         </div>
         {errors?.affiliation && (
           <p className="text-red-600">Please select Affiliation</p>
