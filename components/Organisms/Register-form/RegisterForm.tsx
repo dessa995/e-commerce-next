@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-
-import NameRowRegister from "../../Molecules/Register-Name-row/RegisterNameRow";
-import UsernamePasswordRowRegister from "@/components/Molecules/UsernamePasswordRowRegister/UsernamePasswordRowRegister";
-import ChoosePrivateRadio from "@/components/Atoms/Choose-private-radio/ChoosePrivateRadio";
-import ChooseGenderRadio from "@/components/Atoms/Choose-Gender/ChooseGenderRadio";
-import EmailInput from "@/components/Atoms/Email-input/EmailInput";
-// import ConfirmPasswordInut from "@/components/Atoms/Password-input/ConfirmPasswordInut";
+import { useForm, Controller } from "react-hook-form";
 
 type RegisterFormProps = {
   hasAccount: boolean;
@@ -15,6 +8,7 @@ type RegisterFormProps = {
 
 const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
   const {
+    control,
     register,
     watch,
     handleSubmit,
@@ -35,18 +29,162 @@ const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
         className="flex flex-col gap-2 w-11/12"
         onSubmit={handleSubmit(formSubmit)}
       >
-        <ChoosePrivateRadio />
-        <NameRowRegister register={register} errors={errors} />
-        <EmailInput register={register} errors={errors} />
-        <div className="flex flex-col items-cente my-10">
-          <UsernamePasswordRowRegister
-            register={register}
-            errors={errors}
-            hasAccount={hasAccount}
+        {errors?.gender && <p className="text-red-600">Please select gender</p>}
+        <div className="flex gap-2">
+          <label htmlFor="male" className="text-orange-900">
+            Male
+          </label>
+          <Controller
+            name="gender"
+            control={control}
+            render={({ field }) => (
+              <input
+                {...field}
+                className="accent-orange-600 hover:cursor-pointer"
+                type="radio"
+                id="male"
+                value="male"
+                {...register("gender", { required: true })}
+              />
+            )}
           />
-          {/* <ConfirmPasswordInut /> */}
+          <label htmlFor="female" className="text-orange-900">
+            Female
+          </label>
+          <Controller
+            name="gender"
+            control={control}
+            render={({ field }) => (
+              <input
+                {...field}
+                className="accent-orange-600 hover:cursor-pointer"
+                type="radio"
+                id="female"
+                value="female"
+                {...register("gender", { required: true })}
+              />
+            )}
+          />
         </div>
-        <ChooseGenderRadio />
+        <input
+          className={
+            errors?.firstName
+              ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
+              : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
+          }
+          type="text"
+          id="firstName"
+          {...register("firstName", { required: true })}
+          placeholder={errors?.firstName ? "Name required" : "Your name"}
+        />
+        <input
+          className={
+            errors?.lastName
+              ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
+              : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
+          }
+          type="text"
+          id="lastName"
+          {...register("lastName", { required: true })}
+          placeholder={
+            errors?.lastName ? "Last name required" : "Your last name"
+          }
+        />
+        <input
+          className={
+            errors?.email
+              ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
+              : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
+          }
+          type="email"
+          id="email"
+          {...register("email", { required: true })}
+          placeholder={errors?.email ? "E-mail required" : "Your E-mail"}
+        />
+        <div className="flex flex-col items-cente my-10">
+          <input
+            className={
+              errors?.username
+                ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
+                : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
+            }
+            type="text"
+            id="username"
+            {...register("username", { required: true })}
+            placeholder="Your username"
+          />
+          <input
+            className={
+              errors?.password
+                ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
+                : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
+            }
+            type="password"
+            id="password"
+            {...register("password", { required: true })}
+            placeholder={
+              errors?.password ? "Password required" : "Your Password"
+            }
+          />
+          <input
+            className={
+              errors?.confirmPassword
+                ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
+                : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
+            }
+            type="password"
+            id="confirmPassword"
+            {...register("confirmPassword", { required: true })}
+            placeholder={
+              errors?.confirmPassword
+                ? "Passwords did not match"
+                : "Confirm Your Password"
+            }
+          />
+        </div>
+        {errors?.affiliation && (
+          <p className="text-red-600">Please select Affiliation</p>
+        )}
+        <div className="flex gap-2">
+          <label htmlFor="private" className="text-orange-900">
+            Private
+          </label>
+          <Controller
+            name="affiliation"
+            control={control}
+            render={({ field }) => {
+              return (
+                <input
+                  {...field}
+                  type="radio"
+                  id="private"
+                  value="private"
+                  className="accent-orange-600 hover:cursor-pointer"
+                  {...register("affiliation", { required: true })}
+                />
+              );
+            }}
+          />
+          <label htmlFor="company" className="text-orange-900">
+            Company
+          </label>
+          <Controller
+            name="affiliation"
+            control={control}
+            render={({ field }) => {
+              return (
+                <input
+                  {...field}
+                  type="radio"
+                  id="company"
+                  value="company"
+                  className="accent-orange-600 hover:cursor-pointer"
+                  {...register("affiliation", { required: true })}
+                />
+              );
+            }}
+          />
+        </div>
         <p className="text-orange-900">
           By submiting your registration you agree on our{" "}
           <a

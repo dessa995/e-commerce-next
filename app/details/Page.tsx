@@ -13,11 +13,8 @@ const Details = () => {
   return (
     <>
       {/* <div className={styles.testClass}>{t("header-title")}</div> */}
-      {hasAccount ? (
-        <LoginPage setHasAccount={setHasAccount} hasAccount={hasAccount} />
-      ) : (
-        <RegisterPage setHasAccount={setHasAccount} hasAccount={hasAccount} />
-      )}
+      {/* <LoginPage setHasAccount={setHasAccount} hasAccount={hasAccount} /> */}
+      <RegisterPage setHasAccount={setHasAccount} hasAccount={hasAccount} />
     </>
   );
 };
