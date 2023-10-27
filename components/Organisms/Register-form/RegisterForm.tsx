@@ -12,6 +12,15 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
+  const validateEmail = (value: string) => {
+    const validRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (value.match(validRegex)) {
+      return true;
+    } else {
+      return "Invalid email address";
+    }
+  };
+
   const passwordMatch = (value: string) => {
     const password = getValues("password"); // Get the value of the "Password" field
     if (password === value) {
@@ -101,17 +110,32 @@ const RegisterForm = () => {
             errors?.lastName ? "Last name required" : "Your last name"
           }
         />
-        <input
-          className={
-            errors?.email
-              ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
-              : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
-          }
-          type="email"
-          id="email"
-          {...register("email", { required: true })}
-          placeholder={errors?.email ? "E-mail required" : "Your E-mail"}
+        <Controller
+          name="email"
+          control={control}
+          rules={{ required: "Email is required", validate: validateEmail }}
+          defaultValue=""
+          render={({ field }) => (
+            <input
+              {...field}
+              type="text"
+              id="email"
+              placeholder={errors?.email ? "E-mail required" : "Your E-mail"}
+              className={
+                errors?.email
+                  ? "p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none"
+                  : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
+              }
+            />
+          )}
         />
+        {errors?.email && (
+          <p className="text-red-600">
+            {typeof errors.email === "string"
+              ? errors.email
+              : "Email adres invalid"}
+          </p>
+        )}
         <div className="flex flex-col items-cente my-10">
           <input
             className={
@@ -144,7 +168,7 @@ const RegisterForm = () => {
                 : "p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none"
             }
             type="password"
-            id="confirmPassword"
+            id="cPassword"
             {...register("cpassword", {
               required: true,
               validate: passwordMatch,

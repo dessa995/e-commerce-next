@@ -2,17 +2,21 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
+// import styles from "./login-form.module.css";
+
 const LoginForm = () => {
   const {
     register,
     watch,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const formData = watch();
   const formSubmit = (data: any) => {
     console.log(data);
+    reset();
   };
 
   return (
