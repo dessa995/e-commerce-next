@@ -1,13 +1,7 @@
-import { log } from "console";
-import React, { useState } from "react";
+import Link from "next/link";
 import { useForm, Controller } from "react-hook-form";
 
-type RegisterFormProps = {
-  hasAccount: boolean;
-  setHasAccount: React.Dispatch<React.SetStateAction<boolean>>;
-};
-
-const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
+const RegisterForm = () => {
   const {
     control,
     register,
@@ -20,7 +14,11 @@ const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
 
   const passwordMatch = (value: string) => {
     const password = getValues("password"); // Get the value of the "Password" field
-    return password === value || "Passwords should match!";
+    if (password === value) {
+      return true; // Passwords match
+    } else {
+      return "Passwords should match!"; // Return a string as the error message
+    }
   };
 
   const formData = watch();
@@ -157,7 +155,13 @@ const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
                 : "Confirm Your Password"
             }
           />
-          {errors?.cpassword && <p className="text-red-600">{}</p>}
+          {errors?.cpassword && (
+            <p className="text-red-600">
+              {typeof errors.cpassword === "string"
+                ? errors.cpassword
+                : "Passwords should match"}
+            </p>
+          )}
         </div>
         {errors?.affiliation && (
           <p className="text-red-600">Please select Affiliation</p>
@@ -220,12 +224,12 @@ const RegisterForm = ({ setHasAccount, hasAccount }: RegisterFormProps) => {
       </form>
       <p className="text-orange-900 text-sm">
         Already have an Account?{" "}
-        <button
+        <Link
+          href="/login"
           className="text-orange-600 text-sm hover:text-orange-800 transition-all mt-4"
-          onClick={() => setHasAccount(true)}
         >
           Login Here
-        </button>{" "}
+        </Link>
       </p>
     </div>
   );

@@ -1,5 +1,5 @@
 import Header from "../components/Organisms/Header/Header";
-import Details from "./details/Page";
+import Details from "./details/Details";
 // import useTranslation from "next-translate/useTranslation";
 // import styles from "./details/page.module.css";
 
