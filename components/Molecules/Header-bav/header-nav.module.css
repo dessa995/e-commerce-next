@@ -1,0 +1,7 @@
+.navLink {
+  @apply text-amber-600 transition-all duration-300;
+}
+
+.navLink:hover {
+  @apply cursor-pointer text-amber-700;
+}

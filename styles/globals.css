@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../components/Organisms/Login-form/login-form.module.css";
+@import "../app/login/login-page.module.css";
 
 :root {
   --foreground-rgb: 0, 0, 0;

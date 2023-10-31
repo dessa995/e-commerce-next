@@ -19,6 +19,11 @@
   dependencies:
     "regenerator-runtime" "^0.14.0"
 
+"@csstools/selector-specificity@^3.0.0":
+  "integrity" "sha512-hBI9tfBtuPIi885ZsZ32IMEU/5nlZH/KOVYJCOh7gyMxaVLGmLedYqFN6Ui1LXkI8JlC8IsuC0rF0btcRZKd5g=="
+  "resolved" "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-3.0.0.tgz"
+  "version" "3.0.0"
+
 "@eslint-community/eslint-utils@^4.2.0":
   "integrity" "sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA=="
   "resolved" "https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz"
@@ -1849,7 +1854,15 @@
   dependencies:
     "postcss-selector-parser" "^6.0.11"
 
-"postcss-selector-parser@^6.0.11":
+"postcss-nesting@^12.0.1":
+  "integrity" "sha512-6LCqCWP9pqwXw/njMvNK0hGY44Fxc4B2EsGbn6xDcxbNRzP8GYoxT7yabVVMLrX3quqOJ9hg2jYMsnkedOf8pA=="
+  "resolved" "https://registry.npmjs.org/postcss-nesting/-/postcss-nesting-12.0.1.tgz"
+  "version" "12.0.1"
+  dependencies:
+    "@csstools/selector-specificity" "^3.0.0"
+    "postcss-selector-parser" "^6.0.13"
+
+"postcss-selector-parser@^6.0.11", "postcss-selector-parser@^6.0.13":
   "integrity" "sha512-EaV1Gl4mUEV4ddhDnv/xtj7sxwrwxdetHdWUGnT4VJQf+4d05v6lHYZr8N573k5Z0BViss7BDhfWtKS3+sfAqQ=="
   "resolved" "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.13.tgz"
   "version" "6.0.13"
@@ -1862,7 +1875,7 @@
   "resolved" "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   "version" "4.2.0"
 
-"postcss@^8", "postcss@^8.0.0", "postcss@^8.1.0", "postcss@^8.2.14", "postcss@^8.4.21", "postcss@^8.4.23", "postcss@>=8.0.9", "postcss@8.4.31":
+"postcss@^8", "postcss@^8.0.0", "postcss@^8.1.0", "postcss@^8.2.14", "postcss@^8.4", "postcss@^8.4.21", "postcss@^8.4.23", "postcss@>=8.0.9", "postcss@8.4.31":
   "integrity" "sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ=="
   "resolved" "https://registry.npmjs.org/postcss/-/postcss-8.4.31.tgz"
   "version" "8.4.31"
