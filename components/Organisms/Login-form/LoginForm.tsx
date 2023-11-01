@@ -46,7 +46,7 @@ const LoginForm = () => {
             placeholder={
               errors?.password
                 ? t("password-required")
-                : t("passwodr-placeholder")
+                : t("passwodrd-placeholder")
             }
           />
         </div>

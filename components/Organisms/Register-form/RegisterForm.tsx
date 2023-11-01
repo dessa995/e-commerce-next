@@ -54,10 +54,14 @@ const RegisterForm = () => {
         className="flex flex-col gap-2 w-11/12"
         onSubmit={handleSubmit(formSubmit)}
       >
-        {errors?.gender && <p className="text-red-600">Please select gender</p>}
+        {errors?.gender ? (
+          <p className="text-red-600">{t("choose-gender-error")}</p>
+        ) : (
+          <p className="text-orange-900">{t("choose-gender")}</p>
+        )}
         <div className="flex gap-2">
-          <label htmlFor="male" className="text-orange-900">
-            Male
+          <label htmlFor="male" className="text-orange-600">
+            {t("male")}
           </label>
           <Controller
             name="gender"
@@ -73,8 +77,8 @@ const RegisterForm = () => {
               />
             )}
           />
-          <label htmlFor="female" className="text-orange-900">
-            Female
+          <label htmlFor="female" className="text-orange-600">
+            {t("female")}
           </label>
           <Controller
             name="gender"
@@ -96,7 +100,9 @@ const RegisterForm = () => {
           type="text"
           id="firstName"
           {...register("firstName", { required: true })}
-          placeholder={errors?.firstName ? "Name required" : "Your name"}
+          placeholder={
+            errors?.firstName ? t("name-error") : t("name-placeholder")
+          }
         />
         <input
           className={errors?.firstName ? styles.inputError : styles.input}
@@ -104,7 +110,7 @@ const RegisterForm = () => {
           id="lastName"
           {...register("lastName", { required: true })}
           placeholder={
-            errors?.lastName ? "Last name required" : "Your last name"
+            errors?.lastName ? t("lastname-error") : t("lastname-placeholder")
           }
         />
         <Controller
@@ -117,7 +123,9 @@ const RegisterForm = () => {
               {...field}
               type="text"
               id="email"
-              placeholder={errors?.email ? "E-mail required" : "Your E-mail"}
+              placeholder={
+                errors?.email ? t("email-error") : t("no-email-placeholder")
+              }
               className={errors?.firstName ? styles.inputError : styles.input}
             />
           )}
@@ -126,7 +134,7 @@ const RegisterForm = () => {
           <p className="text-red-600">
             {typeof errors.email === "string"
               ? errors.email
-              : "Email adres invalid"}
+              : t("bad-email-error")}
           </p>
         )}
         <div className="flex flex-col items-cente my-10">
@@ -135,7 +143,11 @@ const RegisterForm = () => {
             type="text"
             id="username"
             {...register("username", { required: true })}
-            placeholder="Your username"
+            placeholder={
+              errors?.firstname
+                ? t("username-placeholder")
+                : t("username-required")
+            }
           />
           <input
             className={errors?.firstName ? styles.inputError : styles.input}
@@ -143,7 +155,9 @@ const RegisterForm = () => {
             id="password"
             {...register("password", { required: true })}
             placeholder={
-              errors?.password ? "Password required" : "Your Password"
+              errors?.password
+                ? t("password-required")
+                : t("passwodr-placeholder")
             }
           />
           <input
@@ -156,24 +170,26 @@ const RegisterForm = () => {
             })}
             placeholder={
               errors?.cpassword
-                ? "Confirm Password is required"
-                : "Confirm Your Password"
+                ? t("missing-confirm-password")
+                : t("confirm-password")
             }
           />
           {errors?.cpassword && (
             <p className="text-red-600">
               {typeof errors.cpassword === "string"
                 ? errors.cpassword
-                : "Passwords should match"}
+                : t("passwords-match-error")}
             </p>
           )}
         </div>
-        {errors?.affiliation && (
-          <p className="text-red-600">Please select Affiliation</p>
+        {errors?.affiliation ? (
+          <p className="text-red-600">{t("select-affiliation-error")}</p>
+        ) : (
+          <p className="text-orange-900"> {t("select-affiliation")} </p>
         )}
         <div className="flex gap-2">
-          <label htmlFor="private" className="text-orange-900">
-            Private
+          <label htmlFor="private" className="text-orange-600">
+            {t("private")}
           </label>
           <Controller
             name="affiliation"
@@ -191,8 +207,8 @@ const RegisterForm = () => {
               );
             }}
           />
-          <label htmlFor="company" className="text-orange-900">
-            Company
+          <label htmlFor="company" className="text-orange-600">
+            {t("company")}
           </label>
           <Controller
             name="affiliation"
@@ -212,12 +228,12 @@ const RegisterForm = () => {
           />
         </div>
         <p className="text-orange-900">
-          By submiting your registration you agree on our{" "}
+          {t("policy-agree-text")}{" "}
           <a
             href="#"
             className="text-orange-600 hover:text-orange-800 transition-all"
           >
-            Privacy Policy
+            {t("privacy-policy")}
           </a>
         </p>
         <button className={styles.submitBtn} type="submit">
@@ -225,9 +241,9 @@ const RegisterForm = () => {
         </button>
       </form>
       <p className="text-orange-900 text-sm">
-        Already have an Account?{" "}
+        {t("have-account-text")}{" "}
         <Link href="/login" className={styles.routeLink}>
-          Login Here
+          {t("login-link")}
         </Link>
       </p>
     </div>

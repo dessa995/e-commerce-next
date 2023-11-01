@@ -1,14 +1,46 @@
 {
   "header-title": "Fine header!!!",
   "homepage-header": "NOT COMPLETED YET",
+
   "home": "Home",
   "shop": "Shop",
   "about": "About",
   "contact": "Contact",
+
   "username-placeholder": "Your username",
   "username-required": "Username required",
-  "passwodr-placeholder": "Your password",
+
+  "passwodrd-placeholder": "Your password",
   "password-required": "Password required",
+  "confirm-password": "Confirm Your Password",
+  "missing-confirm-password": "Confirm Password is Required",
+  "passwords-match-error": "Passwords should match",
+
   "login-page-router-message": "Don't have an Account yet?",
-  "register-here": "Register Here"
+  "register-here": "Register Here",
+
+  "choose-gender": "Choose gender",
+  "choose-gender-error": "Please select gender",
+  "male": "Male",
+  "female": "Female",
+
+  "name-placeholder": "Your Name",
+  "name-error": "Name required",
+
+  "lastname-placeholder": "Your lastname",
+  "lastname-error": "Lastname required",
+
+  "email-placeholder": "Your e-mail",
+  "no-email-error": "E-mail required",
+  "bad-email-error": "Email adres invalid",
+
+  "select-affiliation": "Select Affiliation",
+  "select-affiliation-error": "Please select Affiliation",
+  "private": "Private",
+  "company": "Company",
+
+  "policy-agree-text": "By submiting your registration you agree on our",
+  "privacy-policy": "Privacy Policy",
+  "have-account-text": "Already have an Account?",
+  "login-link": "Login Here"
 }

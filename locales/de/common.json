@@ -1,14 +1,46 @@
 {
   "header-title": "Fine header!!! [de]",
   "homepage-header": "NOT COMPLETED YET [de]",
+
   "home": "Home [de]",
   "shop": "Shop [de]",
   "about": "About [de]",
   "contact": "Contact [de]",
+
   "username-placeholder": "Your username [de]",
   "username-required": "Username required [de]",
+
   "passwodr-placeholder": "Your password [de]",
   "password-required": "Password required [de]",
+  "confirm-password": "Confirm Your Password [de]",
+  "missing-confirm-password": "Confirm Password is Required [de]",
+  "passwords-match-error": "Passwords should match [de]",
+
   "login-page-router-message": "Don't have an Account yet? [de]",
-  "register-here": "Register Here [de]"
+  "register-here": "Register Here [de]",
+
+  "choose-gender": "Choose gender",
+  "choose-gender-error": "Please select gender [de]",
+  "male": "Male [de]",
+  "female": "Female [de]",
+
+  "name-placeholder": "Your Name [de]",
+  "name-error": "Name required [de]",
+
+  "lastname-placeholder": "Your lastname [de]",
+  "lastname-error": "Lastname required [de]",
+
+  "email-placeholder": "Your e-mail [de]",
+  "no-email-error": "E-mail required [de]",
+  "bad-email-error": "Email adres invalid [de]",
+
+  "select-affiliation": "Select Affiliation [de]",
+  "select-affiliation-error": "Please select Affiliation [de]",
+  "private": "Private [de]",
+  "company": "Company [de]",
+
+  "policy-agree-text": "By submiting your registration you agree on our [de]",
+  "privacy-policy": "Privacy Policy [de]",
+  "have-account-text": "Already have an Account? [de]",
+  "login-link": "Login Here [de]"
 }
