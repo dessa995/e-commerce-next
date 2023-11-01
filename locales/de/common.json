@@ -1,4 +1,14 @@
 {
-    "test": "Hello There [de]",
-    "header-title": "Fine header!!! [de]"
+  "header-title": "Fine header!!! [de]",
+  "homepage-header": "NOT COMPLETED YET [de]",
+  "home": "Home [de]",
+  "shop": "Shop [de]",
+  "about": "About [de]",
+  "contact": "Contact [de]",
+  "username-placeholder": "Your username [de]",
+  "username-required": "Username required [de]",
+  "passwodr-placeholder": "Your password [de]",
+  "password-required": "Password required [de]",
+  "login-page-router-message": "Don't have an Account yet? [de]",
+  "register-here": "Register Here [de]"
 }

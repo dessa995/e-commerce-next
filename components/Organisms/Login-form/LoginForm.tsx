@@ -1,10 +1,13 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import useTranslation from "next-translate/useTranslation";
 
 import styles from "./login-form.module.css";
 
 const LoginForm = () => {
+  const { t } = useTranslation("common");
+
   const {
     register,
     watch,
@@ -29,7 +32,11 @@ const LoginForm = () => {
             type="text"
             id="username"
             {...register("username", { required: true })}
-            placeholder="Your username"
+            placeholder={
+              errors?.username
+                ? t("username-required")
+                : t("username-placeholder")
+            }
           />
           <input
             className={errors?.username ? styles.inputError : styles.input}
@@ -37,7 +44,9 @@ const LoginForm = () => {
             id="password"
             {...register("password", { required: true })}
             placeholder={
-              errors?.password ? "Password required" : "Your Password"
+              errors?.password
+                ? t("password-required")
+                : t("passwodr-placeholder")
             }
           />
         </div>
@@ -46,9 +55,9 @@ const LoginForm = () => {
         </button>
       </form>
       <p className="text-orange-900 text-sm">
-        Don't have an Account yet?{" "}
+        {t("login-page-router-message")}{" "}
         <Link href="/register" className={styles.routeLink}>
-          Register Here
+          {t("register-here")}
         </Link>
       </p>
     </div>

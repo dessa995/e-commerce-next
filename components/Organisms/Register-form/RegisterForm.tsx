@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { useForm, Controller } from "react-hook-form";
+import useTranslation from "next-translate/useTranslation";
 
 import styles from "./register-form.module.css";
 
 const RegisterForm = () => {
+  const { t } = useTranslation("common");
+
   const {
     control,
     register,

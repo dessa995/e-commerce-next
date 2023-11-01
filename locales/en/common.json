@@ -1,4 +1,14 @@
 {
-    "test": "Hello There",
-    "header-title": "Fine header!!!"
+  "header-title": "Fine header!!!",
+  "homepage-header": "NOT COMPLETED YET",
+  "home": "Home",
+  "shop": "Shop",
+  "about": "About",
+  "contact": "Contact",
+  "username-placeholder": "Your username",
+  "username-required": "Username required",
+  "passwodr-placeholder": "Your password",
+  "password-required": "Password required",
+  "login-page-router-message": "Don't have an Account yet?",
+  "register-here": "Register Here"
 }
