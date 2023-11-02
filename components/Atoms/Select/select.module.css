@@ -1,0 +1,6 @@
+.selectLabel {
+  @apply text-orange-900;
+}
+.selectLabelError {
+  @apply text-red-600;
+}

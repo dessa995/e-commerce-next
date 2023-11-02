@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import React from "react";
-import useTranslation from "next-translate/useTranslation";
 
 import HeaderNav from "@/components/Molecules/Header-bav/HeaderNav";
 

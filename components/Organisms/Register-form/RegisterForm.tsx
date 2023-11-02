@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import useTranslation from "next-translate/useTranslation";
 
 import styles from "./register-form.module.css";
+import Select from "@/components/Atoms/Select/Select";
 
 const RegisterForm = () => {
   const { t } = useTranslation("common");
@@ -95,24 +96,34 @@ const RegisterForm = () => {
             )}
           />
         </div>
-        <input
-          className={errors?.firstName ? styles.inputError : styles.input}
-          type="text"
-          id="firstName"
-          {...register("firstName", { required: true })}
-          placeholder={
-            errors?.firstName ? t("name-error") : t("name-placeholder")
-          }
-        />
-        <input
-          className={errors?.firstName ? styles.inputError : styles.input}
-          type="text"
-          id="lastName"
-          {...register("lastName", { required: true })}
-          placeholder={
-            errors?.lastName ? t("lastname-error") : t("lastname-placeholder")
-          }
-        />
+        <div className="flex w-full gap-2 justify-between">
+          <input
+            className={
+              errors?.firstName
+                ? styles.inputError + " w-6/12"
+                : styles.input + " w-6/12"
+            }
+            type="text"
+            id="firstName"
+            {...register("firstName", { required: true })}
+            placeholder={
+              errors?.firstName ? t("name-error") : t("name-placeholder")
+            }
+          />
+          <input
+            className={
+              errors?.firstName
+                ? styles.inputError + " w-6/12"
+                : styles.input + " w-6/12"
+            }
+            type="text"
+            id="lastName"
+            {...register("lastName", { required: true })}
+            placeholder={
+              errors?.lastName ? t("lastname-error") : t("lastname-placeholder")
+            }
+          />
+        </div>
         <Controller
           name="email"
           control={control}
@@ -124,7 +135,7 @@ const RegisterForm = () => {
               type="text"
               id="email"
               placeholder={
-                errors?.email ? t("email-error") : t("no-email-placeholder")
+                errors?.email ? t("email-error") : t("no-email-error")
               }
               className={errors?.firstName ? styles.inputError : styles.input}
             />
@@ -137,7 +148,8 @@ const RegisterForm = () => {
               : t("bad-email-error")}
           </p>
         )}
-        <div className="flex flex-col items-cente my-10">
+        <Select register={register} errors={errors} />
+        <div className="flex flex-col items-cente my-10 mt-5">
           <input
             className={errors?.firstName ? styles.inputError : styles.input}
             type="text"
@@ -157,7 +169,7 @@ const RegisterForm = () => {
             placeholder={
               errors?.password
                 ? t("password-required")
-                : t("passwodr-placeholder")
+                : t("passwodrd-placeholder")
             }
           />
           <input
