@@ -5,9 +5,10 @@ import styles from "./select.module.css";
 type selectProps = {
   register: any;
   errors: any;
+  t: any;
 };
 
-const Select = ({ register, errors }: selectProps) => {
+const Select = ({ register, errors, t }: selectProps) => {
   return (
     <React.Fragment>
       <label
@@ -16,20 +17,21 @@ const Select = ({ register, errors }: selectProps) => {
           errors?.country ? styles.selectLabelError : styles.selectLabel
         }
       >
-        {errors?.country && "Please select country"}
+        {errors?.country && t("select-header")}
       </label>
       <select
+        className={styles.countrySelect}
         defaultValue=""
         id="select-country"
         {...register("country", { required: true })}
       >
         <option disabled value="">
-          - Please select a Country -
+          {`- ${t("select-header")} -`}
         </option>
-        <option value="england">{"England"}</option>
-        <option value="spain">{"Spain"}</option>
-        <option value="germany">{"Germany"}</option>
-        <option value="italy">{"Italy"}</option>
+        <option value="england">{t("england")}</option>
+        <option value="spain">{t("spain")}</option>
+        <option value="germany">{t("germany")}</option>
+        <option value="italy">{t("italy")}</option>
       </select>
     </React.Fragment>
   );

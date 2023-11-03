@@ -148,7 +148,7 @@ const RegisterForm = () => {
               : t("bad-email-error")}
           </p>
         )}
-        <Select register={register} errors={errors} />
+        <Select register={register} errors={errors} t={t} />
         <div className="flex flex-col items-cente my-10 mt-5">
           <input
             className={errors?.firstName ? styles.inputError : styles.input}

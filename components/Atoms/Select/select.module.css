@@ -4,3 +4,11 @@
 .selectLabelError {
   @apply text-red-600;
 }
+
+.countrySelect {
+  @apply bg-transparent text-amber-600 border-b border-orange-900 py-2;
+}
+
+.countrySelect > option {
+  @apply bg-orange-100 text-orange-600;
+}

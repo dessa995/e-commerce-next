@@ -42,5 +42,11 @@
   "policy-agree-text": "By submiting your registration you agree on our [de]",
   "privacy-policy": "Privacy Policy [de]",
   "have-account-text": "Already have an Account? [de]",
-  "login-link": "Login Here [de]"
+  "login-link": "Login Here [de]",
+
+  "select-header": "Please select country [de]",
+  "england": "England [de]",
+  "spain": "Spain [de]",
+  "germany": "Germany [de]",
+  "italy": "Italy [de]"
 }

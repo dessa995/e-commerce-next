@@ -13,9 +13,9 @@ const Header = () => {
       {" "}
       {/*Da li i linija klasa iz headera treba u module.css? */}
       <div className="flex justify-between w-3/4 mx-3.5">
-        <div>
+        <Link href="/">
           <h1 className="text-3xl font-bold text-amber-500">E-commerce-next</h1>
-        </div>
+        </Link>
         <div>
           <HeaderNav />
         </div>
