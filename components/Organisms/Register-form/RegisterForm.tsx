@@ -1,9 +1,15 @@
 import Link from "next/link";
 import { useForm, Controller } from "react-hook-form";
 import useTranslation from "next-translate/useTranslation";
+import { validateEmail, passwordMatch } from "@/utils/helpers";
+
+import { GenderData } from "@/services/genderData";
+import GenderRadio from "@/components/Atoms/GenderRadio/GenderRadio";
+import { AffiliationsData } from "@/services/affiliationsData";
+import AffiliationsRadio from "@/components/Atoms/AffiliationsRadio/AffiliationsRadio";
+import Select from "@/components/Atoms/Select/Select";
 
 import styles from "./register-form.module.css";
-import Select from "@/components/Atoms/Select/Select";
 
 const RegisterForm = () => {
   const { t } = useTranslation("common");
@@ -11,30 +17,11 @@ const RegisterForm = () => {
   const {
     control,
     register,
-    watch,
     reset,
     getValues,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const validateEmail = (value: string) => {
-    const validRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (value.match(validRegex)) {
-      return true;
-    } else {
-      return "Invalid email address";
-    }
-  };
-
-  const passwordMatch = (value: string) => {
-    const password = getValues("password");
-    if (password === value) {
-      return true;
-    } else {
-      return "Passwords should match!";
-    }
-  };
 
   const formSubmit = (data: any) => {
     const { password, cpassword } = getValues();
@@ -59,39 +46,11 @@ const RegisterForm = () => {
           <p className="text-orange-900">{t("choose-gender")}</p>
         )}
         <div className="flex gap-2">
-          <label htmlFor="male" className="text-orange-600">
-            {t("male")}
-          </label>
-          <Controller
-            name="gender"
+          <GenderRadio
+            t={t}
             control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                className="accent-orange-600 hover:cursor-pointer"
-                type="radio"
-                id="male"
-                value="male"
-                {...register("gender", { required: true })}
-              />
-            )}
-          />
-          <label htmlFor="female" className="text-orange-600">
-            {t("female")}
-          </label>
-          <Controller
-            name="gender"
-            control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                className="accent-orange-600 hover:cursor-pointer"
-                type="radio"
-                id="female"
-                value="female"
-                {...register("gender", { required: true })}
-              />
-            )}
+            register={register}
+            genderData={GenderData}
           />
         </div>
         <div className="flex w-full gap-2 justify-between">
@@ -197,7 +156,13 @@ const RegisterForm = () => {
         ) : (
           <p className="text-orange-900"> {t("select-affiliation")} </p>
         )}
-        <div className="flex gap-2">
+        <AffiliationsRadio
+          t={t}
+          control={control}
+          register={register}
+          affiliationsData={AffiliationsData}
+        />
+        {/* <div className="flex gap-2">
           <label htmlFor="private" className="text-orange-600">
             {t("private")}
           </label>
@@ -236,7 +201,7 @@ const RegisterForm = () => {
               );
             }}
           />
-        </div>
+        </div> */}
         <p className="text-orange-900">
           {t("policy-agree-text")}{" "}
           <a
