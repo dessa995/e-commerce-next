@@ -16,7 +16,6 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm();
 
-  const formData = watch();
   const formSubmit = (data: any) => {
     console.log(data);
     reset();

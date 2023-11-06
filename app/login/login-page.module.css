@@ -1,4 +1,4 @@
 .formWrapper {
-  @apply w-4/12 mx-auto bg-orange-200 p-6 rounded-xl shadow-md;
+  @apply w-4/12 mx-auto my-[20vh] bg-orange-200 p-6 rounded-xl shadow-md;
   /* Add your other custom styles here */
 }

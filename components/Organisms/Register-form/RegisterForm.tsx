@@ -36,8 +36,6 @@ const RegisterForm = () => {
     }
   };
 
-  const formData = watch();
-
   const formSubmit = (data: any) => {
     const { password, cpassword } = getValues();
 
@@ -135,7 +133,7 @@ const RegisterForm = () => {
               type="text"
               id="email"
               placeholder={
-                errors?.email ? t("email-error") : t("no-email-error")
+                errors?.email ? t("no-email-error") : t("bad-email-error")
               }
               className={errors?.firstName ? styles.inputError : styles.input}
             />

@@ -16,9 +16,8 @@ const HeaderNav = () => {
             {t("home")}
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link href="#" className={styles.navLink}>
-            {/* prazni linkovi ce raditi i biti adekvatno izmenjeni kasnije */}
             {t("shop")}
           </Link>
         </li>
@@ -31,7 +30,7 @@ const HeaderNav = () => {
           <Link href="#" className={styles.navLink}>
             {t("contact")}
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

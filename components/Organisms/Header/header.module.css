@@ -1,3 +1,15 @@
+.headerWrapper {
+  @apply flex w-4/5 mx-auto mt-[20px] justify-center items-center;
+}
+
+.headerContentBox {
+  @apply flex justify-between w-3/4 mx-3.5;
+}
+
+.headerHeading {
+  @apply text-3xl font-bold text-amber-500;
+}
+
 .loginBtn {
   @apply w-28 h-7 rounded-lg text-center bg-orange-600 text-slate-100 p-px transition-all duration-300;
 }

@@ -1,11 +1,14 @@
 {
-  "header-title": "Fine header!!!",
+  "header-title": "E-commerce-nex",
   "homepage-header": "NOT COMPLETED YET",
 
   "home": "Home",
   "shop": "Shop",
   "about": "About",
   "contact": "Contact",
+
+  "register": "Register",
+  "login": "Login",
 
   "username-placeholder": "Your username",
   "username-required": "Username required",

@@ -2,26 +2,26 @@
 
 import Link from "next/link";
 import React from "react";
+import useTranslation from "next-translate/useTranslation";
 
 import HeaderNav from "@/components/Molecules/Header-bav/HeaderNav";
 
 import styles from "./header.module.css";
 
 const Header = () => {
+  const { t } = useTranslation("common");
   return (
-    <header className="flex w-4/5 mx-auto justify-center items-center">
-      {" "}
-      {/*Da li i linija klasa iz headera treba u module.css? */}
-      <div className="flex justify-between w-3/4 mx-3.5">
+    <header className={styles.headerWrapper}>
+      <div className={styles.headerContentBox}>
         <Link href="/">
-          <h1 className="text-3xl font-bold text-amber-500">E-commerce-next</h1>
+          <h1 className={styles.headerHeading}>{t("header-title")}</h1>
         </Link>
         <div>
           <HeaderNav />
         </div>
       </div>
       <Link href="/login" className={styles.loginBtn}>
-        Login
+        {t("login")}
       </Link>
     </header>
   );

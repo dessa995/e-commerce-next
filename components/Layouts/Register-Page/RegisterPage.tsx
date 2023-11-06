@@ -3,10 +3,15 @@
 import RegisterForm from "@/components/Organisms/Register-form/RegisterForm";
 import React from "react";
 
+import styles from "./registerPage.module.css";
+
+// File not imported, should be deleted
+
 const RegisterPage = () => {
   return (
     <>
-      <div className="w-4/12 mx-auto bg-orange-200 p-6 rounded-xl shadow-md">
+      <div className={styles.registerPageWrapper}>
+        <h1>kurac</h1>
         <RegisterForm />
       </div>
     </>

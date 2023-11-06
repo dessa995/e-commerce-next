@@ -1,12 +1,13 @@
+import React from "react";
 import LoginForm from "@/components/Organisms/Login-form/LoginForm";
+
+// File not imported, should be deleted
 
 const LoginPage = () => {
   return (
-    <div>
-      <div className="w-4/12 mx-auto bg-orange-200 p-6 rounded-xl shadow-md">
-        <LoginForm />
-      </div>
-    </div>
+    <React.Fragment>
+      <LoginForm />
+    </React.Fragment>
   );
 };
 
