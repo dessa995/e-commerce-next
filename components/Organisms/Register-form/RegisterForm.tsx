@@ -1,15 +1,17 @@
 import Link from "next/link";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import useTranslation from "next-translate/useTranslation";
-import { validateEmail, passwordMatch } from "@/utils/helpers";
+import { passwordMatch, formSubmit } from "@/utils/helpers";
+import Select from "@/components/Atoms/Select/Select";
 
 import { GenderData } from "@/services/genderData";
 import GenderRadio from "@/components/Atoms/GenderRadio/GenderRadio";
 import { AffiliationsData } from "@/services/affiliationsData";
 import AffiliationsRadio from "@/components/Atoms/AffiliationsRadio/AffiliationsRadio";
-import Select from "@/components/Atoms/Select/Select";
 
 import styles from "./register-form.module.css";
+import Email from "@/components/Atoms/Email/Email";
+import ErrorComponent from "@/components/Atoms/ErrorComponent/Error";
 
 const RegisterForm = () => {
   const { t } = useTranslation("common");
@@ -17,21 +19,9 @@ const RegisterForm = () => {
   const {
     control,
     register,
-    reset,
-    getValues,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const formSubmit = (data: any) => {
-    const { password, cpassword } = getValues();
-
-    console.log(
-      `passwords match ${password} ${cpassword} ${password === cpassword}`
-    );
-    console.log(data);
-    reset();
-  };
 
   return (
     <div className="flex flex-col items-center">
@@ -41,7 +31,11 @@ const RegisterForm = () => {
         onSubmit={handleSubmit(formSubmit)}
       >
         {errors?.gender ? (
-          <p className="text-red-600">{t("choose-gender-error")}</p>
+          <ErrorComponent
+            t={t}
+            errors={errors?.gender}
+            translate={"choose-gender-error"}
+          />
         ) : (
           <p className="text-orange-900">{t("choose-gender")}</p>
         )}
@@ -81,32 +75,14 @@ const RegisterForm = () => {
             }
           />
         </div>
-        <Controller
-          name="email"
-          control={control}
-          rules={{ required: "Email is required", validate: validateEmail }}
-          defaultValue=""
-          render={({ field }) => (
-            <input
-              {...field}
-              type="text"
-              id="email"
-              placeholder={
-                errors?.email ? t("no-email-error") : t("bad-email-error")
-              }
-              className={errors?.firstName ? styles.inputError : styles.input}
-            />
-          )}
+        <Email t={t} register={register} errors={errors} />
+        <ErrorComponent
+          t={t}
+          errors={errors?.email}
+          translate="bad-email-error"
         />
-        {errors?.email && (
-          <p className="text-red-600">
-            {typeof errors.email === "string"
-              ? errors.email
-              : t("bad-email-error")}
-          </p>
-        )}
         <Select register={register} errors={errors} t={t} />
-        <div className="flex flex-col items-cente my-10 mt-5">
+        <div className="flex flex-col gap-1 items-cente my-10 mt-5">
           <input
             className={errors?.firstName ? styles.inputError : styles.input}
             type="text"
@@ -143,16 +119,18 @@ const RegisterForm = () => {
                 : t("confirm-password")
             }
           />
-          {errors?.cpassword && (
-            <p className="text-red-600">
-              {typeof errors.cpassword === "string"
-                ? errors.cpassword
-                : t("passwords-match-error")}
-            </p>
-          )}
+          <ErrorComponent
+            t={t}
+            errors={errors.cpassword}
+            translate={"passwords-match-error"}
+          />
         </div>
         {errors?.affiliation ? (
-          <p className="text-red-600">{t("select-affiliation-error")}</p>
+          <ErrorComponent
+            t={t}
+            errors={errors?.affiliation}
+            translate={"select-affiliation-error"}
+          />
         ) : (
           <p className="text-orange-900"> {t("select-affiliation")} </p>
         )}
@@ -162,46 +140,6 @@ const RegisterForm = () => {
           register={register}
           affiliationsData={AffiliationsData}
         />
-        {/* <div className="flex gap-2">
-          <label htmlFor="private" className="text-orange-600">
-            {t("private")}
-          </label>
-          <Controller
-            name="affiliation"
-            control={control}
-            render={({ field }) => {
-              return (
-                <input
-                  {...field}
-                  type="radio"
-                  id="private"
-                  value="private"
-                  className="accent-orange-600 hover:cursor-pointer"
-                  {...register("affiliation", { required: true })}
-                />
-              );
-            }}
-          />
-          <label htmlFor="company" className="text-orange-600">
-            {t("company")}
-          </label>
-          <Controller
-            name="affiliation"
-            control={control}
-            render={({ field }) => {
-              return (
-                <input
-                  {...field}
-                  type="radio"
-                  id="company"
-                  value="company"
-                  className="accent-orange-600 hover:cursor-pointer"
-                  {...register("affiliation", { required: true })}
-                />
-              );
-            }}
-          />
-        </div> */}
         <p className="text-orange-900">
           {t("policy-agree-text")}{" "}
           <a

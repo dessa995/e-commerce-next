@@ -3,11 +3,11 @@
 }
 
 .input {
-  @apply p-1 bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none;
+  @apply p-1 w-full bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none;
 }
 
 .inputError {
-  @apply p-1 bg-transparent border border-red-500 placeholder-red-600 outline-none;
+  @apply p-1 w-full bg-transparent border border-red-500 placeholder-red-600 outline-none;
 }
 
 .submitBtn {
