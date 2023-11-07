@@ -1620,10 +1620,10 @@
   dependencies:
     "typescript" "4.5.2"
 
-"next-translate@^2.6.1", "next-translate@>= 2.4.1":
-  "integrity" "sha512-R8BQChc8eW1YiLb++6X7yyBsm65RWQoyw9ZSeKZhm7rOwsd0V1hONz6FnNWy91ybMu1Z2gRNMNWjb/Xg7smdOA=="
-  "resolved" "https://registry.npmjs.org/next-translate/-/next-translate-2.6.1.tgz"
-  "version" "2.6.1"
+"next-translate@^2.6.2", "next-translate@>= 2.4.1":
+  "integrity" "sha512-Dcfo2Vyw+Ds06+8BJM0RcV/lfN7R59kTY/NP+XJgSpcrFKZV6QJuKfS+K4+OHkKBdQnF3ZOT3wk1np9eZx/PEA=="
+  "resolved" "https://registry.npmjs.org/next-translate/-/next-translate-2.6.2.tgz"
+  "version" "2.6.2"
 
 "next@>= 13.2.5", "next@13.5.6":
   "integrity" "sha512-Y2wTcTbO4WwEsVb4A8VSnOsG1I9ok+h74q0ZdxkwM3EODqrs4pasq7O0iUxbcS9VtWMicG7f3+HAj0r1+NtKSw=="
