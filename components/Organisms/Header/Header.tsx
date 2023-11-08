@@ -10,6 +10,7 @@ import styles from "./header.module.css";
 
 const Header = () => {
   const { t } = useTranslation("common");
+  // console.log(pathName);
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.headerContentBox}>

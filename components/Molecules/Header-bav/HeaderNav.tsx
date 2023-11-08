@@ -2,16 +2,11 @@ import React from "react";
 import Link from "next/link";
 
 import useTranslation from "next-translate/useTranslation";
-// import { setLanguage } from "next-translate";
 
 import styles from "./header-nav.module.css";
 
 const HeaderNav = () => {
   const { t } = useTranslation("common");
-
-  // const changeLocale = (lang: string) => {
-  //   setLanguage(lang);
-  // };
 
   return (
     <nav className="h-full">
