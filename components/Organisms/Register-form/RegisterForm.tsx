@@ -20,6 +20,8 @@ const RegisterForm = () => {
     control,
     register,
     handleSubmit,
+    reset,
+    getValues,
     formState: { errors },
   } = useForm();
 
@@ -28,7 +30,9 @@ const RegisterForm = () => {
       <h2 className={styles.formHeading}>Registration</h2>
       <form
         className="flex flex-col gap-2 w-11/12"
-        onSubmit={handleSubmit(formSubmit)}
+        onSubmit={handleSubmit((data) =>
+          formSubmit(data, { reset, getValues })
+        )}
       >
         {errors?.gender ? (
           <ErrorComponent
@@ -75,7 +79,7 @@ const RegisterForm = () => {
             }
           />
         </div>
-        <Email t={t} register={register} errors={errors} />
+        <Email t={t} register={register} errors={errors} control={control} />
         <ErrorComponent
           t={t}
           errors={errors?.email}
@@ -111,7 +115,7 @@ const RegisterForm = () => {
             id="cPassword"
             {...register("cpassword", {
               required: true,
-              validate: passwordMatch,
+              validate: (value) => passwordMatch(value, getValues),
             })}
             placeholder={
               errors?.cpassword

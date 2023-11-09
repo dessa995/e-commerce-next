@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
-export const formSubmit = (data: any) => {
-  const { reset, getValues } = useForm();
+export const formSubmit = (data: any, { reset, getValues }: any) => {
+  // const { reset, getValues } = useForm();
   const { password, cpassword } = getValues();
 
   console.log(
@@ -20,8 +20,7 @@ export const validateEmail = (value: string) => {
   }
 };
 
-export const passwordMatch = (value: string) => {
-  const { getValues } = useForm();
+export const passwordMatch = (value: string, getValues: any) => {
   const password = getValues("password");
   if (password === value) {
     return true;

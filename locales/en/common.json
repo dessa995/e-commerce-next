@@ -26,6 +26,7 @@
   "choose-gender-error": "Please select gender",
   "male": "Male",
   "female": "Female",
+  "nonbinary": "Nonbinary",
 
   "name-placeholder": "Your Name",
   "name-error": "Name required",

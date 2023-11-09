@@ -4,8 +4,8 @@ import { useForm, Controller } from "react-hook-form";
 
 import styles from "./email.module.css";
 
-const Email = ({ t, errors, register }: any) => {
-  const { control } = useForm();
+const Email = ({ t, errors, register, control }: any) => {
+  // const { control } = useForm();
 
   return (
     <React.Fragment>
