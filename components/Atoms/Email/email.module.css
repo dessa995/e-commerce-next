@@ -1,7 +1,7 @@
 .input {
-  @apply p-1 w-full bg-transparent border-b border-orange-800 placeholder-amber-600 text-orange-900 outline-none;
+  @apply p-1 w-full bg-transparent border-b border-slate-100 placeholder-gray-200 text-slate-100 outline-none;
 }
 
 .inputError {
-  @apply p-1 w-full bg-transparent border border-red-500 placeholder-red-600 outline-none;
+  @apply p-1 w-full bg-transparent font-bold border-2 border-red-600 placeholder-red-700 outline-none;
 }

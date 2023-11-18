@@ -1,7 +1,20 @@
 .navLink {
-  @apply text-amber-600 transition-all duration-300;
+  @apply text-sky-500 transition-all duration-300;
 }
 
 .navLink:hover {
-  @apply cursor-pointer text-amber-700;
+  @apply cursor-pointer text-sky-950;
+}
+
+.langBtn {
+  @apply text-sky-500 relative;
+}
+
+.langBtn:hover {
+  @apply text-sky-950;
+}
+
+.langBtn:hover::after {
+  content: "does not work";
+  @apply absolute bg-slate-100 text-sky-950 top-[25px] -left-[50px] w-[120px] shadow-md rounded;
 }

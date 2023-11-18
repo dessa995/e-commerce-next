@@ -41,7 +41,7 @@ const RegisterForm = () => {
             translate={"choose-gender-error"}
           />
         ) : (
-          <p className="text-orange-900">{t("choose-gender")}</p>
+          <p className="text-sky-950">{t("choose-gender")}</p>
         )}
         <div className="flex gap-2">
           <GenderRadio
@@ -52,77 +52,98 @@ const RegisterForm = () => {
           />
         </div>
         <div className="flex w-full gap-2 justify-between">
-          <input
-            className={
-              errors?.firstName
-                ? styles.inputError + " w-6/12"
-                : styles.input + " w-6/12"
-            }
-            type="text"
-            id="firstName"
-            {...register("firstName", { required: true })}
-            placeholder={
-              errors?.firstName ? t("name-error") : t("name-placeholder")
-            }
-          />
-          <input
-            className={
-              errors?.firstName
-                ? styles.inputError + " w-6/12"
-                : styles.input + " w-6/12"
-            }
-            type="text"
-            id="lastName"
-            {...register("lastName", { required: true })}
-            placeholder={
-              errors?.lastName ? t("lastname-error") : t("lastname-placeholder")
-            }
+          <div className="w-[48%]">
+            <input
+              className={
+                errors?.firstName
+                  ? styles.inputError + " w-6/12"
+                  : styles.input + " w-6/12"
+              }
+              type="text"
+              id="firstName"
+              {...register("firstName", { required: true })}
+              placeholder={
+                errors?.firstName ? t("name-error") : t("name-placeholder")
+              }
+            />
+          </div>
+          <div className="w-[48%]">
+            <input
+              className={
+                errors?.lastName
+                  ? styles.inputError + " w-6/12"
+                  : styles.input + " w-6/12"
+              }
+              type="text"
+              id="lastName"
+              {...register("lastName", { required: true })}
+              placeholder={
+                errors?.lastName
+                  ? t("lastname-error")
+                  : t("lastname-placeholder")
+              }
+            />
+          </div>
+        </div>
+        <div className="w-full">
+          <Email t={t} register={register} errors={errors} control={control} />
+          <ErrorComponent
+            t={t}
+            errors={errors?.email}
+            translate="bad-email-error"
           />
         </div>
-        <Email t={t} register={register} errors={errors} control={control} />
-        <ErrorComponent
-          t={t}
-          errors={errors?.email}
-          translate="bad-email-error"
-        />
-        <Select register={register} errors={errors} t={t} />
+        <div className="w-full">
+          <ErrorComponent
+            t={t}
+            errors={errors?.country}
+            translate="select-header"
+          />
+          <Select register={register} errors={errors} t={t} />
+        </div>
         <div className="flex flex-col gap-1 items-cente my-10 mt-5">
-          <input
-            className={errors?.firstName ? styles.inputError : styles.input}
-            type="text"
-            id="username"
-            {...register("username", { required: true })}
-            placeholder={
-              errors?.firstname
-                ? t("username-placeholder")
-                : t("username-required")
-            }
-          />
-          <input
-            className={errors?.firstName ? styles.inputError : styles.input}
-            type="password"
-            id="password"
-            {...register("password", { required: true })}
-            placeholder={
-              errors?.password
-                ? t("password-required")
-                : t("passwodrd-placeholder")
-            }
-          />
-          <input
-            className={errors?.firstName ? styles.inputError : styles.input}
-            type="password"
-            id="cPassword"
-            {...register("cpassword", {
-              required: true,
-              validate: (value) => passwordMatch(value, getValues),
-            })}
-            placeholder={
-              errors?.cpassword
-                ? t("missing-confirm-password")
-                : t("confirm-password")
-            }
-          />
+          <div className="w-full">
+            <input
+              className={errors?.username ? styles.inputError : styles.input}
+              type="text"
+              id="username"
+              {...register("username", { required: true })}
+              placeholder={
+                errors?.firstname
+                  ? t("username-placeholder")
+                  : t("username-required")
+              }
+            />
+          </div>
+          <div className="w-full">
+            <input
+              className={errors?.password ? styles.inputError : styles.input}
+              type="password"
+              id="password"
+              {...register("password", { required: true })}
+              placeholder={
+                errors?.password
+                  ? t("password-required")
+                  : t("passwodrd-placeholder")
+              }
+            />
+          </div>
+          <div className="w-full">
+            <input
+              className={errors?.cpasword ? styles.inputError : styles.input}
+              type="password"
+              id="cPassword"
+              {...register("cpassword", {
+                required: true,
+                validate: (value) => passwordMatch(value, getValues),
+              })}
+              placeholder={
+                errors?.cpassword
+                  ? t("missing-confirm-password")
+                  : t("confirm-password")
+              }
+            />
+          </div>
           <ErrorComponent
             t={t}
             errors={errors.cpassword}
@@ -136,19 +157,21 @@ const RegisterForm = () => {
             translate={"select-affiliation-error"}
           />
         ) : (
-          <p className="text-orange-900"> {t("select-affiliation")} </p>
+          <p className="text-sky-950"> {t("select-affiliation")} </p>
         )}
-        <AffiliationsRadio
-          t={t}
-          control={control}
-          register={register}
-          affiliationsData={AffiliationsData}
-        />
-        <p className="text-orange-900">
+        <div className="w-full">
+          <AffiliationsRadio
+            t={t}
+            control={control}
+            register={register}
+            affiliationsData={AffiliationsData}
+          />
+        </div>
+        <p className="text-slate-100">
           {t("policy-agree-text")}{" "}
           <a
             href="#"
-            className="text-orange-600 hover:text-orange-800 transition-all"
+            className="text-sky-950 hover:text-slate-100 transition-all"
           >
             {t("privacy-policy")}
           </a>
@@ -157,7 +180,7 @@ const RegisterForm = () => {
           Submit
         </button>
       </form>
-      <p className="text-orange-900 text-sm">
+      <p className="text-slate-100 text-sm">
         {t("have-account-text")}{" "}
         <Link href="/login" className={styles.routeLink}>
           {t("login-link")}

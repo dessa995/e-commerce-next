@@ -1,14 +1,14 @@
 .selectLabel {
-  @apply text-orange-900;
+  @apply text-sky-950;
 }
 .selectLabelError {
   @apply text-red-600;
 }
 
 .countrySelect {
-  @apply bg-transparent text-amber-600 border-b border-orange-900 py-2;
+  @apply bg-transparent text-slate-100 border-b border-slate-100 py-2 w-full;
 }
 
 .countrySelect > option {
-  @apply bg-orange-100 text-orange-600;
+  @apply bg-slate-100 text-sky-950;
 }

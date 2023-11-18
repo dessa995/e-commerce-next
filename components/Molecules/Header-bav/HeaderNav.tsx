@@ -17,10 +17,11 @@ const HeaderNav = () => {
           </Link>
         </li>
         <li>
-          <button>De</button> {/* DOES NOTTHING now and is TEMPORARY */}
+          <button className={styles.langBtn}>De</button>{" "}
+          {/* DOES NOTTHING now and is TEMPORARY */}
         </li>
         <li>
-          <button>En</button>
+          <button className={styles.langBtn}>En</button>
         </li>
         {/* <li>
           <Link href="#" className={styles.navLink}>

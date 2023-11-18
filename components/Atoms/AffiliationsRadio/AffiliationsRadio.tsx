@@ -8,7 +8,7 @@ const AffiliationsRadio = ({ t, control, register, affiliationsData }: any) => {
         <React.Fragment key={affiliation.id}>
           <label
             htmlFor={affiliation.name}
-            className="text-orange-600 capitalize"
+            className="text-slate-100 capitalize"
           >
             {t(`${affiliation.name}`)}
           </label>
@@ -22,7 +22,7 @@ const AffiliationsRadio = ({ t, control, register, affiliationsData }: any) => {
                   type="radio"
                   id={affiliation.id}
                   value={affiliation.value}
-                  className="accent-orange-600 hover:cursor-pointer"
+                  className="accent-sky-600 hover:cursor-pointer"
                   {...register("affiliation", { required: true })}
                 />
               );

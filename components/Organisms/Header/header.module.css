@@ -7,13 +7,13 @@
 }
 
 .headerHeading {
-  @apply text-3xl font-bold text-amber-500;
+  @apply text-3xl font-bold text-sky-950;
 }
 
 .loginBtn {
-  @apply w-28 h-7 rounded-lg text-center bg-orange-600 text-slate-100 p-px transition-all duration-300;
+  @apply w-28 h-7 rounded-lg text-center bg-sky-950 font-bold text-slate-100 p-px transition-all duration-300;
 }
 
 .loginBtn:hover {
-  @apply bg-amber-400 text-orange-800;
+  @apply bg-sky-500 text-slate-100;
 }

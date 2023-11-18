@@ -11,14 +11,14 @@ type selectProps = {
 const Select = ({ register, errors, t }: selectProps) => {
   return (
     <React.Fragment>
-      <label
+      {/* <label
         htmlFor="select-country"
         className={
           errors?.country ? styles.selectLabelError : styles.selectLabel
         }
       >
         {errors?.country && t("select-header")}
-      </label>
+      </label> */}
       <select
         className={styles.countrySelect}
         defaultValue=""

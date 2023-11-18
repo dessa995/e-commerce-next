@@ -6,7 +6,7 @@ const GenderRadio = ({ t, control, register, genderData }: any) => {
     <div className="flex gap-2">
       {genderData?.map((gender: any) => (
         <React.Fragment key={gender.id}>
-          <label htmlFor={gender.name} className="text-orange-600 capitalize">
+          <label htmlFor={gender.name} className="text-slate-100 capitalize">
             {t(`${gender.name}`)}
           </label>
           <Controller
@@ -15,7 +15,7 @@ const GenderRadio = ({ t, control, register, genderData }: any) => {
             render={({ field }) => (
               <input
                 {...field}
-                className="accent-orange-600 hover:cursor-pointer"
+                className="accent-sky-600 hover:cursor-pointer"
                 type="radio"
                 id={gender.id}
                 value={gender.value}
